@@ -1,0 +1,103 @@
+/*
+ * Global styles: colours, fonts and a few shared effects.
+ * To change the site's colours, edit the values in @theme below.
+ * Every colour on the site comes from these few variables.
+ */
+@import "tailwindcss";
+
+@theme {
+  /* Colours */
+  --color-paper: #f5f3ee;      /* page background (warm off-white) */
+  --color-paper-deep: #ebe7df; /* cards and alternate surfaces */
+  --color-ink: #17181b;        /* main text */
+  --color-ink-soft: #464a52;   /* secondary text */
+  --color-muted: #646872;      /* labels and small print */
+  --color-line: #d8d3c9;       /* thin dividers */
+  --color-accent: #a8361c;     /* the one accent colour: a hanko-seal red */
+  --color-accent-soft: #f1e1d8;
+
+  /* Fonts (loaded in src/app/layout.tsx) */
+  --font-display: "Newsreader Variable", Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* stops the sticky header covering section titles */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---- Section reveal animation ----------------------------------------
+ * Content is only hidden when JavaScript is running (the "js" class), so the
+ * page is never blank if scripts fail. Reduced-motion users get no animation.
+ */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hero entrance: a short, one-time fade-up */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-in {
+  animation: hero-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Faint ledger lines behind the hero — a quiet nod to spreadsheets */
+.ledger {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    color-mix(in srgb, var(--color-line) 55%, transparent) 31px,
+    color-mix(in srgb, var(--color-line) 55%, transparent) 32px
+  );
+}
