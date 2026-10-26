@@ -72,7 +72,7 @@ export const profile: Profile = {
 
   // After you deploy, paste your website address here, e.g. "https://riz-rahman.vercel.app"
   // It makes link previews (LinkedIn, LINE, Slack) show the right address. Optional.
-  siteUrl: "",
+  siteUrl: "https://riz-rahman.vercel.app",
 };
 
 /* ----------------------------------------------------------------------------
@@ -184,7 +184,7 @@ export const experience: ExperienceItem[] = [
     organisation: "Socious · Tech for Impact Summit",
     role: "Partnerships Intern",
     type: "Internship",
-    period: "February 2026 - May 2026", // CHECK: your English CV says "July – August 2025"
+    period: "Feb 2026 – May 2026",
     duration: "3 months",
     location: "Tokyo, Japan",
     summary: "Partnerships internship supporting the Tech for Impact Summit.",
@@ -236,7 +236,7 @@ export const experience: ExperienceItem[] = [
     organisation: "UNIQLO — Frente Sasazuka",
     role: "Store Staff (part-time)",
     type: "Work",
-    period: "Aug 2025 – Jul 2026", // CHECK: your English CV says "July 2025 – January 2026"
+    period: "Aug 2025 – Jul 2026",
     duration: "",
     location: "Tokyo",
     summary: "Sales floor, cashier and bilingual support for Japanese and international shoppers.",
@@ -419,7 +419,7 @@ export const skills: SkillGroup[] = [
 
 export const languages: Language[] = [
   { name: "English", level: "Native · TOEIC 970" },
-  { name: "Japanese", level: "JLPT N3" },
+  { name: "Japanese", level: "Conversational · JLPT N3" },
   { name: "Bengali", level: "Native" },
   { name: "Hindi", level: "Conversational" },
   { name: "Urdu", level: "Conversational" },
